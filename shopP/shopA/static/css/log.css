@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Merriweather', serif;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem 3rem;
+}
+.log-box{
+    background-color: #d9d9d9;
+    background-image: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%);
+    box-shadow: 4px 4px 10px black;
+    margin: auto;
+    width: 20%;
+    display: block;
+    text-align: center;
+    padding: 5rem 0;
+    margin-top: 6rem;
+    flex-wrap: wrap;
+}
+.log-box .log-head{
+    margin-bottom: 1rem;
+}
+.log-box .log-input input{
+    margin-top: 0.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+}
+.log-box p{
+    margin-bottom: 1rem;
+}
+.log-box p a{
+    text-decoration: none;
+    color: black;
+}
+.log-box p a:hover{
+    color: red;
+}
+.log-box .log-btn button{
+    border: none;
+    padding: 1rem;
+}
+.log-box .log-btn button:hover{
+    cursor: alias;
+    background-color: black;
+    color: white;
+    transition: all 0.5s ease-in-out;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 0.5rem 3rem;
+}
+footer .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+footer .col-1 h3{
+    font-size: 2rem;
+}
+footer .col-1 .social-link{
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+footer .col-1 .social-link a{
+    padding-right: 1rem;
+    color: black;
+}
+footer .col-1 .social-link .fa-linkedin:hover{
+    color: #0077b5;
+    transition: all 0.5s ease-in-out;
+}
+footer .col-1 .social-link .fa-square-github:hover{
+    color: #333;
+    transition: all 0.5s ease-in-out;
+}
+footer .col-1 .social-link .fa-instagram:hover{
+    color: #962fbf;
+    transition: all 0.5s ease-in-out;
+}
+footer .col-2 h4{
+    font-size: 1.5rem;
+}
+footer .col-2 p{
+    float: right;
+    margin-top: 0.5rem;
+}
+footer .col-2 a{
+    text-decoration: none;
+    color: black;
+}
+footer .col-2 p .fa-linkedin-in:hover{
+    color: #0077b5;
+    transition: all 0.5s ease-in-out;
+}
+footer .last-line{
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 2rem;
+}
+footer .last-line a{
+    font-size: 1rem;
+    color: black;
+    cursor: alias;
+}

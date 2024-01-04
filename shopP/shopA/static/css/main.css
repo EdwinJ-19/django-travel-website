@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Merriweather', serif;
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1rem 3rem;
+}
+nav .nav-center ul{
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: 10rem;
+    font-size: 1.1rem;
+}
+nav .nav-center ul a{
+    text-decoration: none;
+    color: black;
+}
+nav .nav-center ul li{
+    transition: transform 0.5s ease-in-out;
+}
+nav .nav-center ul li:hover{
+    transform: translateY(-2px);
+}
+nav .nav-center li .active{
+    font-weight: bolder;
+    transform: scaleY(-2px);
+}
+.nav-search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+.nav-search input{
+    padding: 1rem 5rem;
+    text-align: center;
+}
+.nav-search button{
+    border: none;
+    padding: 1rem 2rem;
+}
+.nav-search button:hover{
+    transition: all 0.5s ease-in-out;
+    background-color: navy;
+    color: white;
+    border-radius: 3rem;
+}
+
+container .carousel-img-list{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    font-size: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+}
+container .carousel-img-list::-webkit-scrollbar{
+    display: none;
+}
+container .carousel-img-list .image-item{
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+}
+
+footer{
+    padding: 1rem 3rem;
+}
+footer .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+footer .col-1 h3{
+    font-size: 2rem;
+}
+footer .col-1 .social-link{
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+footer .col-1 .social-link a{
+    padding-right: 1rem;
+    color: black;
+}
+footer .col-1 .social-link .fa-linkedin:hover{
+    color: #0077b5;
+    transition: all 0.5s ease-in-out;
+}
+footer .col-1 .social-link .fa-square-github:hover{
+    color: #333;
+    transition: all 0.5s ease-in-out;
+}
+footer .col-1 .social-link .fa-instagram:hover{
+    color: #962fbf;
+    transition: all 0.5s ease-in-out;
+}
+footer .col-2 h4{
+    font-size: 1.5rem;
+}
+footer .col-2 p{
+    float: right;
+    margin-top: 0.5rem;
+}
+footer .col-2 a{
+    text-decoration: none;
+    color: black;
+}
+footer .col-2 p .fa-linkedin-in:hover{
+    color: #0077b5;
+    transition: all 0.5s ease-in-out;
+}
+footer .last-line{
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 2rem;
+}
+footer .last-line a{
+    font-size: 1rem;
+    color: black;
+    cursor: alias;
+}
