@@ -19,7 +19,7 @@
 
     <nav>
         <div class="nav-head">
-            <h1>Shopify</h1>
+            <h1>Travel & Tourism</h1>
         </div>
     </nav>
 
@@ -27,24 +27,14 @@
         <div class="log-head">
             <h1>Login</h1>
         </div>
+        {%block body%}{%endblock%}
         {%if current_user%}
-        <div class="log-input">
-            <form method="POST">
-                {%csrf_token%}
-                <label>Username</label> <br>
-                <input type="text" name="uname"> <br>
-                <label>Password</label><br>
-                <input type="password" name="pwd">
-            </form>
-        </div>
-        <p><a href="#" class="forgot">Forgot Password?</a></p>
-        <div class="log-btn">
             {% else %}
-            <a href="{% url 'main' %}">LogIn</a>
-            <a href="{% url 'register' %}">Register</a>
+            <div class="btn">
+                <a href="{% url 'login' %}" style="margin-right: 1rem;">LogIn</a>
+                <a href="{% url 'register' %}">Register</a>
+            </div>
             {% endif %}
-            
-        </div>
     </div>
 
 

@@ -44,14 +44,19 @@ nav{
 .log-box p a:hover{
     color: red;
 }
-.log-box .log-btn button{
-    border: none;
-    padding: 1rem;
+.log-box .log-btn{
+    padding-top: 1rem;
 }
-.log-box .log-btn button:hover{
-    cursor: alias;
-    background-color: black;
+.log-box .log-btn a{
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    background-color: white;
+    padding: 0.5rem 1rem;
+}
+.log-box .log-btn a:hover{
     color: white;
+    background-color: #333;
     transition: all 0.5s ease-in-out;
 }
 

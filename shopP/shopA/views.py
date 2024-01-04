@@ -4,15 +4,15 @@ from .models import User
 
 
 def log(request):
-    return render(request,'log.html')
+    return render(request,'block.html')
 
-def main(request):
-    if 'user' in request.session:
-        current_user = request.session['user']
-        param = {'current_user': current_user}
-        return render(request,'main.html',param)
-    else:
-        return redirect('register.html')
+# def main(request):
+#     if 'user' in request.session:
+#         current_user = request.session['user']
+#         param = {'current_user': current_user}
+#         return render(request,'main.html',param)
+#     else:
+#         return redirect('register.html')
 
 def register(request):
     if request.method == 'POST':
@@ -38,15 +38,16 @@ def login(request):
         check_user = User.objects.filter(username=uname,password=pwd)
         if check_user:
             request.session['user'] = uname
-            return redirect('main.html')
+            return render(request,'main.html')
         else:
             return HttpResponse('Please Enter your valid username or password!')
+            # return HttpResponse('Please Enter your valid username or password!')
     else:
-        return render(request,'log.html')
+        return render(request,'block.html')
     
 def logout(request):
     try:
         del request.session['user']
     except:
-        return redirect('log.html')
-    return redirect('log.html')
+        return redirect('block.html')
+    return redirect('block.html')
