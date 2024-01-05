@@ -19,7 +19,8 @@
 
     <nav>
         <div class="nav-head">
-            <h1>Travel & Tourism</h1>
+            <img src="{%static 'img/T&T.png'%}" alt="logo" style="width: 4rem;"> 
+            <h1 style="font-family: 'Playfair Display',sans-serif;">Travel & Tourism</h1>
         </div>
     </nav>
 
@@ -27,14 +28,20 @@
         <div class="log-head">
             <h1>Login</h1>
         </div>
-        {%block body%}{%endblock%}
-        {%if current_user%}
-            {% else %}
+        <div class="log-input">
+            <form method="POST" enctype="multipart/form-data">
+                {%csrf_token%}
+                <label>Username</label> <br>
+                <input type="text" name="uname"> <br>
+                <label>Password</label><br>
+                <input type="password" name="pwd">
+            </form>
+        </div>
+        <p><a href="#" class="forgot">Forgot Password?</a></p>
             <div class="btn">
                 <a href="{% url 'login' %}" style="margin-right: 1rem;">LogIn</a>
                 <a href="{% url 'register' %}">Register</a>
             </div>
-            {% endif %}
     </div>
 
 
@@ -54,7 +61,7 @@
             </div>
         </div>
         <div class="last-line">
-            © 2024 Edwin James John | Design by <a href="https://github.com/EdwinJ-19" style="margin-left: 0.2rem;" target="_blank"><i class="fa-brands fa-github"></i></a>.
+            <p>© 2024 Edwin James John | Designed by <a href="https://github.com/EdwinJ-19" style="margin-left: 0.2rem;" target="_blank"><i class="fa-brands fa-github" style="font-size: 0.8rem;"></i></a>.</p>
         </div>
     </footer>
     

@@ -3,12 +3,18 @@
     padding: 0;
     font-family: 'Merriweather', serif;
 }
+body::-webkit-scrollbar{
+    display: none;
+}
 nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 1rem 3rem;
+    padding: 1.5rem 3rem;
+}
+nav .nav-head img{
+    display: none;
 }
 nav .nav-center ul{
     display: flex;
@@ -31,7 +37,47 @@ nav .nav-center li .active{
     font-weight: bolder;
     transform: scaleY(-2px);
 }
-.nav-search{
+nav .nav-center .book a{
+    border: 1px solid black;
+    padding: 0.5rem 1rem;
+}
+nav .nav-center .book a:hover{
+    background-color: #333;
+    color: white;
+}
+@media (max-width:530px) and (min-width:370px){
+    nav .nav-head img{
+       display: block; 
+       margin-top: 2rem;
+    }
+    nav .nav-head h1{
+        display: none;
+    }
+    footer .row .col-1 h3{
+        font-size: 1.2rem;
+    }
+    footer .row .col-1 .social-link{
+        font-size: 1rem;
+    }
+    footer .row .col-2 h4,p{
+        font-size: 1rem;
+    }
+    footer .last-line p,i{
+        font-size: 0.5rem;
+    }
+    .log-box{
+        width: 60%;
+    }
+    container .butn a{
+        
+    }
+}
+@media (max-width:390px){
+    footer{
+        top: 95vh;
+    }
+}
+container .nav-search{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,21 +86,20 @@ nav .nav-center li .active{
     width: 100%;
     margin-top: 1rem;
 }
-.nav-search input{
-    padding: 1rem 5rem;
+container .nav-search input{
+    padding: 1rem 4rem;
     text-align: center;
 }
-.nav-search button{
+container .nav-search button{
     border: none;
     padding: 1rem 2rem;
 }
-.nav-search button:hover{
+container .nav-search button:hover{
     transition: all 0.5s ease-in-out;
     background-color: navy;
     color: white;
     border-radius: 3rem;
 }
-
 container .carousel-img-list{
     display: grid;
     grid-template-columns: repeat(7,1fr);
@@ -72,9 +117,38 @@ container .carousel-img-list .image-item{
     height: 500px;
     object-fit: cover;
 }
+container .grid{
+    margin-top: 8vh;
+}
+container .grid img{
+    object-fit: cover;
+    width: 100%;
+    height: 15rem;
+}
+container .grid p{
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Long Cang', cursive;
+    margin: 2rem 0;
+}
+container .butn a{
+    display: block;
+    margin: auto;
+    width: 10%;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    text-align: center;
+    padding: 1rem 0;
+}
+container .butn a:hover{
+    background-color: #333;
+    color: white;
+    transition: all 0.5s ease-in-out;
+}
 
 footer{
-    padding: 1rem 3rem;
+    padding: 0.5rem 3rem;
 }
 footer .row{
     display: flex;

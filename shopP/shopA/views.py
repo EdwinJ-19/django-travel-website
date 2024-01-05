@@ -4,13 +4,13 @@ from .models import User
 
 
 def log(request):
-    return render(request,'block.html')
+    return render(request,'travel.html')
 
-# def main(request):
+# def user(request):
 #     if 'user' in request.session:
 #         current_user = request.session['user']
 #         param = {'current_user': current_user}
-#         return render(request,'main.html',param)
+#         return render(request,'log.html',param)
 #     else:
 #         return redirect('register.html')
 
@@ -21,14 +21,26 @@ def register(request):
         pwd = request.POST.get('pwd')
         a_pwd = request.POST.get('a_pwd')
 
-        if User.objects.filter(username=uname).count()>0:
-            return HttpResponse('Username Already Exists')
+        user1 = User(email=e_mail,username=uname,password=pwd,again_password=a_pwd)
+
+        if User.objects.filter(email=e_mail):
+            return HttpResponse("Email Already Exists")
         else:
-            user = User(email=e_mail,username=uname,password=pwd,again_password=a_pwd)
-            user.save()
+            user1.save()
             return redirect('log.html')
+
     else:
         return render(request,'register.html')
+
+    #     if User.objects.filter(username=uname).count()>0:
+    #         return HttpResponse('Username Already Exists')
+    #     else:
+    #         user = User(email=e_mail,username=uname,password=pwd,again_password=a_pwd)
+    #         user.save()
+    #         return redirect('log.html')
+    # else:
+    #     return render(request,'register.html')
+
 
 def login(request):
     if request.method == 'POST':
@@ -40,14 +52,14 @@ def login(request):
             request.session['user'] = uname
             return render(request,'main.html')
         else:
-            return HttpResponse('Please Enter your valid username or password!')
-            # return HttpResponse('Please Enter your valid username or password!')
+            return HttpResponse('Please enter your username and password correctly!')
     else:
-        return render(request,'block.html')
+        return render(request,'log.html')
     
+
 def logout(request):
     try:
         del request.session['user']
     except:
-        return redirect('block.html')
-    return redirect('block.html')
+        return redirect('log.html')
+    return redirect('log.html')
