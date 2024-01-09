@@ -23,7 +23,7 @@
     <div class="nav-center">
         <ul>
             <li><a href="#" class="active">Home</a></li>
-            <li><a href=""><i class="fa-regular fa-user" style="margin-right: 0.5rem;"></i></a></li>
+            <li><a href="#">{{request.user.first_name}}<i class="fa-regular fa-user" style="margin-right: 0.5rem;"></i></a></li>
             <li><a href="{%url 'about'%}">About Me</a></li>
             <li class="book"><a href="{%url 'travel'%}">Book</a></li>
         </ul>

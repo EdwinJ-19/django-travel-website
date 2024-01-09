@@ -28,16 +28,15 @@
         <strong>Invalid Data</strong>
         {{errmsg}}
     </div> -->
-
+    <form method="POST">
     <div class="log-box">
         <div class="log-head">
             <h1>Register</h1>
         </div>
         <div class="log-input">
-            <form method="POST">
+            
                 {% csrf_token %}
-                <!-- {{form.as_p}} -->
-                <div class="form-field">
+                <!-- <div class="form-field">
                     {{form.f_name.label}}
                     {{form.f_name}}
                 </div>
@@ -56,23 +55,32 @@
                 <div class="form-field">
                     {{form.password2.label}}
                     {{form.password2}}
-                </div>
-                <!-- <label>Email</label> <br>
+                </div> -->
+
+                {% if messages %}
+                <ul class="messages" style="background-color: lightblue; border: 1px solid blue; border-radius: 1rem;padding: 1rem 0; margin-bottom: 1rem;">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                <label>First Name</label> <br>
+                <input type="text" name="first_name" required> <br>
+                <label>Email</label> <br>
                 <input type="text" name="e_mail" required> <br>
                 <label>Username</label> <br>
-                <input type="text" name="uname" required> <br>
+                <input type="text" name="username" required> <br>
                 <label>Password</label><br>
-                <input type="password" name="pwd" required><br>
-                <label>Put Password Again</label><br>
-                <input type="password" name="a_pwd" required> -->
-            </form>
+                <input type="password" name="password" required><br>
         </div>
-        <p><a href="#" class="forgot">Forgot Password?</a></p>
+        <p>Already have an Account?<a href="{%url 'login'%}" class="forgot">Login</a></p>
         <div class="log-btn">
             <!-- <a href="#">Register</a> -->
             <button type="submit">Register</button>
         </div>
     </div>
+    </form>
 
 
     <footer>

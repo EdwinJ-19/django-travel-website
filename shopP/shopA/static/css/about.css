@@ -45,7 +45,7 @@ nav .nav-center .book a:hover{
     background-color: #333;
     color: white;
 }
-@media (max-width:530px) and (min-width:370px){
+@media (max-width:530px) and (min-width:200px){
     nav .nav-head img{
        display: block; 
        margin-top: 2rem;

@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = "shopA.User"
+# AUTH_USER_MODEL = "shopA.User"
 
 
 # Application definition

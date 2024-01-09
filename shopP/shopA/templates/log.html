@@ -23,26 +23,35 @@
             <h1 style="font-family: 'Playfair Display',sans-serif;">Travel & Tourism</h1>
         </div>
     </nav>
-
+    <form method="POST" enctype="multipart/form-data">
     <div class="log-box">
         <div class="log-head">
             <h1>Login</h1>
         </div>
         <div class="log-input">
-            <form method="POST" enctype="multipart/form-data">
+                {% if messages %}
+                <ul class="messages" style="background-color: lightblue; border: 1px solid blue; border-radius: 1rem;padding: 1rem 0; margin-bottom: 1rem;">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            
                 {%csrf_token%}
                 <label>Username</label> <br>
-                <input type="text" name="uname"> <br>
+                <input type="text" name="username"> <br>
                 <label>Password</label><br>
-                <input type="password" name="pwd">
-            </form>
+                <input type="password" name="password1">
         </div>
-        <p><a href="#" class="forgot">Forgot Password?</a></p>
+        <p><a href="{%url 'register'%}" class="forgot">Forgot Password?</a></p>
             <div class="btn">
-                <a href="#" style="margin-right: 1rem;">LogIn</a>
-                <a href="{% url 'register' %}">Register</a>
+                <button type="submit">LogIn</button>
+                <button type="button">Register</button>
+                <!-- <a href="#" style="margin-right: 1rem;">LogIn</a>
+                <a href="{% url 'register' %}">Register</a> -->
             </div>
     </div>
+    </form>
 
 
     <footer>

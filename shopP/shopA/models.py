@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
 
 # Create your models here.
 # class User(models.Model):
@@ -14,7 +14,8 @@ from django.contrib.auth.models import AbstractUser
 #     class Meta:
 #         db_table='User'
 
-class User(AbstractUser):
+class Login(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null = True, blank = True)
     phone = models.CharField(max_length=10,unique=True)
     class Meta:
         db_table = "USER"

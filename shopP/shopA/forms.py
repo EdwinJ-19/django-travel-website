@@ -1,12 +1,12 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User
+from .models import Login
 
 class UserForm(UserCreationForm):
     f_name = forms.CharField(max_length=20,widget=forms.TextInput())
     email = forms.EmailField(widget=forms.EmailInput())
     class Meta:
-        model = User
+        model = Login
         fields = ('f_name','email')
 
     # def __init__(self,*args,**kwargs):
