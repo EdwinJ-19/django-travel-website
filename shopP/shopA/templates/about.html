@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel To Main</title>
-    <link href="{%static 'img/travel.svg'%}" rel="icon" type="img/icons"> 
+    <title>About Myself</title>
+    <link href="{%static 'img/hotel.svg'%}" rel="icon" type="img/icons"> 
     <!--Css link-->
-    <link href="{%static 'css/main.css'%}" rel="stylesheet" type="text/css">
+    <link href="{%static 'css/about.css'%}" rel="stylesheet" type="text/css">
     <!--google font-->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&family=Long+Cang&family=Merriweather:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Raleway&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
     <!--Fontawesome icon-->
@@ -22,51 +22,29 @@
     </div>
     <div class="nav-center">
         <ul>
-            <li><a href="#" class="active">Home</a></li>
+            <li><a href="{%url 'main'%}">Home</a></li>
             <li><a href=""><i class="fa-regular fa-user" style="margin-right: 0.5rem;"></i></a></li>
-            <li><a href="{%url 'about'%}">About Me</a></li>
+            <li><a href="" class="active">About Me</a></li>
             <li class="book"><a href="{%url 'travel'%}">Book</a></li>
         </ul>
     </div>
    </nav>
 
     <container>
-        <div class="carousel-img-list">
-            <img src="{%static 'img/carousel/1.jpg'%}" alt="1" class="image-item">
-            <img src="{%static 'img/carousel/2.jpg'%}" alt="2" class="image-item">
-            <img src="{%static 'img/carousel/3.jpg'%}" alt="3" class="image-item">
-            <img src="{%static 'img/carousel/4.jpg'%}" alt="4" class="image-item">
-            <img src="{%static 'img/carousel/5.jpg'%}" alt="5" class="image-item">
-            <img src="{%static 'img/carousel/6.jpg'%}" alt="6" class="image-item">
-            <img src="{%static 'img/carousel/7.jpg'%}" alt="7" class="image-item">
+
+    <div class="bg-box">
+        <div class="g-1">
+            <h1>photographer</h1>
+            <p>"A photographer is your teacher, getting<br> marks is your RAW images."</p>
         </div>
 
-        
-    <div class="nav-search">
-        <input type="search" placeholder="Select Your Destination">
-        <input type="text" onfocus="(this.type=date)" min="2024-01-04" max="2024-01-30" placeholder="Check-In">
-        <input type="text" onfocus="(this.type=date)" min="2024-01-05" max="2024-02-30" placeholder="Check-Out">
-        <button type="submit">Search</button>
+        <img src="{%static 'img/e_1.jpeg'%}">
+
+        <div class="g-2">
+            <h1><span>&#10096;</span> coder <span>&#10097;</span></h1>
+            <p>"HTML teaches me, my brain <br>uses CSS and JS/Py for the functionality."</p>
+        </div>
     </div>
-
-        <div class="grid">
-            <div class="i-1">
-                <img src="{%static 'img/main/1.jpg'%}">
-                <p>“When preparing to travel, lay out all your clothes and all your money. Then take half the clothes and twice the money.” <br> - Susan Heller</p>
-            </div>
-            <div class="i-2">
-                <img src="{%static 'img/main/2.jpg'%}">
-                <p>“Traveling - it leaves you speechless, then turns you into a storyteller.”<br> - Ibn Battuta</p>
-            </div>
-            <div class="i-3">
-                <img src="{%static 'img/main/3.jpg'%}">
-                <p>“To Travel is to Live.”<br> - Hans Christian Andersen</p>
-            </div>
-        </div>
-
-        <div class="butn">
-            <a href="#">Book Now to Travel!</a>
-        </div>
 
     </container>
 

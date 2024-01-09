@@ -35,19 +35,42 @@
         </div>
         <div class="log-input">
             <form method="POST">
-                <label>Email</label> <br>
+                {% csrf_token %}
+                <!-- {{form.as_p}} -->
+                <div class="form-field">
+                    {{form.f_name.label}}
+                    {{form.f_name}}
+                </div>
+                <div class="form-field">
+                    {{form.email.label}}
+                    {{form.email}}
+                </div>
+                <div class="form-field">
+                    {{form.username.label}}
+                    {{form.username}}
+                </div>
+                <div class="form-field">
+                    {{form.password1.label}}
+                    {{form.password1}}
+                </div>
+                <div class="form-field">
+                    {{form.password2.label}}
+                    {{form.password2}}
+                </div>
+                <!-- <label>Email</label> <br>
                 <input type="text" name="e_mail" required> <br>
                 <label>Username</label> <br>
                 <input type="text" name="uname" required> <br>
                 <label>Password</label><br>
                 <input type="password" name="pwd" required><br>
                 <label>Put Password Again</label><br>
-                <input type="password" name="a_pwd" required>
+                <input type="password" name="a_pwd" required> -->
             </form>
         </div>
         <p><a href="#" class="forgot">Forgot Password?</a></p>
         <div class="log-btn">
-            <a href="{%url 'login'%}">Register</a>
+            <!-- <a href="#">Register</a> -->
+            <button type="submit">Register</button>
         </div>
     </div>
 

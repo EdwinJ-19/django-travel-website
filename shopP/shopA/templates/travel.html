@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel To Main</title>
-    <link href="{%static 'img/travel.svg'%}" rel="icon" type="img/icons"> 
+    <title>Book</title>
+    <link href="{%static 'img/hotel.svg'%}" rel="icon" type="img/icons"> 
     <!--Css link-->
-    <link href="{%static 'css/main.css'%}" rel="stylesheet" type="text/css">
+    <link href="{%static 'css/travel.css'%}" rel="stylesheet" type="text/css">
     <!--google font-->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&family=Long+Cang&family=Merriweather:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Raleway&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
     <!--Fontawesome icon-->
@@ -22,9 +22,9 @@
     </div>
     <div class="nav-center">
         <ul>
-            <li><a href="">Home</a></li>
+            <li><a href="{%url 'main'%}">Home</a></li>
             <li><a href=""><i class="fa-regular fa-user" style="margin-right: 0.5rem;"></i></a></li>
-            <li><a href="">About Me</a></li>
+            <li><a href="{%url 'about'%}">About Me</a></li>
             <li><a href="" class="active">Book</a></li>
         </ul>
     </div>

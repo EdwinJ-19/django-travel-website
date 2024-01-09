@@ -1,65 +1,50 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
-from .models import User
+from .forms import UserForm
+from django.contrib.auth import get_user_model
+from django.contrib import messages
+from django.contrib import auth
 
+User = get_user_model()
 
 def log(request):
-    return render(request,'travel.html')
-
-# def user(request):
-#     if 'user' in request.session:
-#         current_user = request.session['user']
-#         param = {'current_user': current_user}
-#         return render(request,'log.html',param)
-#     else:
-#         return redirect('register.html')
+    return render(request,'about.html')
 
 def register(request):
-    if request.method == 'POST':
-        e_mail = request.POST.get('email')
-        uname = request.POST.get('uname')
-        pwd = request.POST.get('pwd')
-        a_pwd = request.POST.get('a_pwd')
-
-        user1 = User(email=e_mail,username=uname,password=pwd,again_password=a_pwd)
-
-        if User.objects.filter(email=e_mail):
-            return HttpResponse("Email Already Exists")
+    form:UserForm
+    if request.method=="POST":
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Registration Successfull!')
+            return redirect('/log')
         else:
-            user1.save()
-            return redirect('log.html')
-
+            return render(request,'register.html',{'form':form})
     else:
-        return render(request,'register.html')
-
-    #     if User.objects.filter(username=uname).count()>0:
-    #         return HttpResponse('Username Already Exists')
-    #     else:
-    #         user = User(email=e_mail,username=uname,password=pwd,again_password=a_pwd)
-    #         user.save()
-    #         return redirect('log.html')
-    # else:
-    #     return render(request,'register.html')
-
-
-def login(request):
-    if request.method == 'POST':
-        uname = request.POST.get('uname')
-        pwd = request.POST.get('pwd')
-
-        check_user = User.objects.filter(username=uname,password=pwd)
-        if check_user:
-            request.session['user'] = uname
-            return render(request,'main.html')
-        else:
-            return HttpResponse('Please enter your username and password correctly!')
-    else:
-        return render(request,'log.html')
+        form = UserForm()
+        return render(request,'register.html',{'form':form})
     
+def login(request):
+    if request.user.is_authenticated:
+        return redirect('/')
+    else:
+        if request.method == "POST":
+            username = request.POST.get('uname')
+            password = request.POST.get('pwd')
+            user = auth.authenticate(username=username,password=password)
 
-def logout(request):
-    try:
-        del request.session['user']
-    except:
-        return redirect('log.html')
-    return redirect('log.html')
+            if user is not None:
+                auth.login(request,user)
+            else:
+                messages.error(request,"Invalid Username & Passsword")
+                return redirect('/log')
+        else:
+            return render(request,'log')
+
+def main(request):
+    return render(request,'main.html')
+
+def book(request):
+    return render(request,'travel.html')
+
+def about(request):
+    return render(request,'about.html')
