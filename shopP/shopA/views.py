@@ -1,28 +1,27 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 
 
-def log(request):
+def log_page(request):
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        if not User.objects.filter(username=username).exists():
-            messages.info(request,'Invalid Username')
+        if not User.objects.filter(username = username).exists():
+            messages.error(request,'Invalid Username')
             return redirect('login')
         
-        user = authenticate(username = username,password = password)
+        user = authenticate(username = username, password=password)
 
         if user is None:
-            messages.error(request,'Invalid Password')
+            messages.error(request,'Password Or Username is not Correct!')
             return redirect('login')
         
         else:
-            login(request, user)
-            return redirect('main')
-
+            login(request,user)
+            return redirect ('main')
 
     return render(request,'log.html')
 
@@ -40,8 +39,7 @@ def register(request):
             messages.info(request,'Username Already Taken')
             return redirect('register')
 
-        user = User.objects.create(first_name = first_name,email = email,username=username,password=password)
-        
+        user = User.objects.create(first_name=first_name,email=email,username=username)
         user.set_password(password)
         user.save()
 
@@ -49,36 +47,10 @@ def register(request):
 
         return redirect('register')
     return render(request,'register.html')
-# def register(request):
-#     form:UserForm
-#     if request.method=="POST":
-#         form = UserForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request,'Registration Successfull!')
-#             return redirect('/log')
-#         else:
-#             return render(request,'register.html',{'form':form})
-#     else:
-#         form = UserForm()
-#         return render(request,'register.html',{'form':form})
-    
-# def login(request):
-#     if request.user.is_authenticated:
-#         return redirect('/')
-#     else:
-#         if request.method == "POST":
-#             username = request.POST.get('uname')
-#             password = request.POST.get('pwd')
-#             user = auth.authenticate(username=username,password=password)
 
-#             if user is not None:
-#                 auth.login(request,user)
-#             else:
-#                 messages.error(request,"Invalid Username & Passsword")
-#                 return redirect('/log')
-#         else:
-#             return render(request,'log')
+def out_page(request):
+    logout(request)
+    return render(request,'logout.html')
 
 def main(request):
     return render(request,'main.html')

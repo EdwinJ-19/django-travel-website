@@ -23,7 +23,7 @@
     <div class="nav-center">
         <ul>
             <li><a href="{%url 'main'%}">Home</a></li>
-            <li><a href=""><i class="fa-regular fa-user" style="margin-right: 0.5rem;"></i></a></li>
+            <li><a href="{%url 'out_page'%}"><i class="fa-regular fa-user" style="margin-right: 0.5rem;"></i>{{request.user.first_name}}</a></li>
             <li><a href="" class="active">About Me</a></li>
             <li class="book"><a href="{%url 'travel'%}">Book</a></li>
         </ul>
@@ -35,7 +35,7 @@
     <div class="bg-box">
         <div class="g-1">
             <h1>photographer</h1>
-            <p>"A photographer is your teacher, getting<br> marks is your RAW images."</p>
+            <p>A photographer serves as a teacher, <br>and your RAW photographs are <br>what determine your grade.</p>
         </div>
 
         <img src="{%static 'img/e_1.jpeg'%}">
