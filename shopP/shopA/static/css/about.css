@@ -74,7 +74,52 @@ nav .nav-center .book a:hover{
         top: 95vh;
     }
 }
-
+container .myself{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+container .myself h1{
+    font-size: 1.5rem;
+}
+container .myself-details p{
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    text-align: center;
+}
+/* container .typing .text{
+    position: relative;
+    font-size: 40px;
+    font-weight: bold;
+}
+container .typing .text.first-text{
+    color: black;
+}
+container .typing .text.sec-text{
+    margin-left: 1rem;
+}
+.text.sec-text:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-left: 2px solid black;
+    animation: animate 2s steps(12) infinite;
+}
+@keyframes animate{
+    40%,60%{            
+        left: 100%;
+    }                  
+    100%{
+        left: 0%;
+    }
+} */
 container .bg-box{
     display: flex;
     flex-wrap: wrap;
@@ -90,7 +135,29 @@ container .bg-box img{
     height: 40vh;
     object-fit: cover;
 }
-
+container .p-box{
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap:  wrap;
+    padding: 2rem 0;
+    gap: 2rem;
+}
+container .p-box img{
+    width: 15vw;
+}
+container .project-link a{
+    padding-right: 1rem;
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+}
+container .project-link a:hover{
+    color: #c5dfdf;
+    transition: all 0.5s ease-in-out;
+    cursor: alias;
+}
 footer{
     padding: 0.5rem 3rem;
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Myself</title>
-    <link href="{%static 'img/hotel.svg'%}" rel="icon" type="img/icons"> 
+    <link href="{%static 'img/passport.svg'%}" rel="icon" type="img/icons"> 
     <!--Css link-->
     <link href="{%static 'css/about.css'%}" rel="stylesheet" type="text/css">
     <!--google font-->
@@ -23,7 +23,7 @@
     <div class="nav-center">
         <ul>
             <li><a href="{%url 'main'%}">Home</a></li>
-            <li><a href="{%url 'out_page'%}"><i class="fa-regular fa-user" style="margin-right: 0.5rem;"></i>{{request.user.first_name}}</a></li>
+            <li><a href="{%url 'out_page'%}"><i class="fa-regular fa-user" style="margin-right: 0.5rem;"></i>{{request.user.first_name|capfirst}}</a></li>
             <li><a href="" class="active">About Me</a></li>
             <li class="book"><a href="{%url 'travel'%}">Book</a></li>
         </ul>
@@ -41,8 +41,57 @@
         <img src="{%static 'img/e_1.jpeg'%}">
 
         <div class="g-2">
-            <h1><span>&#10096;</span> coder <span>&#10097;</span></h1>
+            <h1><span>&#10096;</span> programmer <span>&#10097;</span></h1>
             <p>"HTML teaches me, my brain <br>uses CSS and JS/Py for the functionality."</p>
+        </div>
+    </div>
+
+    <hr style=" display: block; margin: auto; width: 50%; margin-top: 2rem;">
+
+    <div class="myself">
+        <h1>Hey! I'm Edwin James John</h1>
+    </div>
+    <div class="myself-details">
+        <p>I am an Aspirant of Full Stack Web developer from Itvedant and <br>i have my B.E. degree from St.John College of Engineering and Management, Palghar which is Information Technology. <br>I also have a fresher experience in HTML,CSS,Django Framework,Python,Javascript.</p>
+    </div>
+
+    <hr style=" display: block; margin: auto; width: 50%; margin-top: 2rem;">
+    
+    <h1 style="text-align: center; margin-top: 1rem;">Projects</h1>
+    
+    <div class="p-box">
+        <img src="{%static 'img/card/1.jpg'%}" alt="p-1">
+        <div class="right">
+            <h2>Facebook</h2>
+            <p style="padding-top: 1rem;">This is a duplicate of facebook using HTML, CSS and JS.</p>
+            <div class="project-link" style="padding-top: 1rem;">
+                <a href="https://github.com/EdwinJ-19/mediabook.git" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://edwinj-19.github.io/mediabook/" target="_blank"><i class="fa-solid fa-laptop-code"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-box">
+        <img src="{%static 'img/card/2.png'%}" alt="p-1">
+        <div class="right">
+            <h2>Portfolio</h2>
+            <p style="padding-top: 1rem;">Portfolio using HTML,CSS,JS(will use in future).</p>
+            <div class="project-link" style="padding-top: 1rem;">
+                <a href="https://github.com/EdwinJ-19/Portfolio.git" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://edwinj-19.github.io/Portfolio/" target="_blank"><i class="fa-solid fa-laptop-code"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-box">
+        <img src="{%static 'img/card/3.png'%}" alt="p-1">
+        <div class="right">
+            <h2>Payment Gateway</h2>
+            <p style="padding-top: 1rem;">Portfolio using HTML,CSS,Payment Integration(RazorPay).</p>
+            <div class="project-link" style="padding-top: 1rem;">
+                <a href="https://github.com/EdwinJ-19/PaymentGatewatyProject.github.io.git" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://edwinj-19.github.io/PaymentGatewatyProject.github.io/" target="_blank"><i class="fa-solid fa-laptop-code"></i></a>
+            </div>
         </div>
     </div>
 
