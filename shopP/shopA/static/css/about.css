@@ -45,7 +45,7 @@ nav .nav-center .book a:hover{
     background-color: #333;
     color: white;
 }
-@media (max-width:530px) and (min-width:200px){
+@media (max-width:530px) and (min-width:100px){
     nav .nav-head img{
        display: block; 
        margin-top: 2rem;
@@ -67,6 +67,13 @@ nav .nav-center .book a:hover{
     }
     .log-box{
         width: 60%;
+    }
+    .bg-box img{
+        margin-left: 10rem;
+        margin-right: 9.6rem;
+    }
+    .bg-box .g-1{
+        margin-top: 1rem;
     }
 }
 @media (max-width:390px){
