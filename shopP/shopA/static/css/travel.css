@@ -75,6 +75,44 @@ nav .nav-center .book a:hover{
     }
 }
 
+container .book-card{
+    position: relative;
+    background-color: red;
+    margin: 5rem 5rem;
+}
+container .carousel{
+    padding: 1rem 5rem;
+}
+container .carousel-img-list{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    font-size: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+container .carousel-img-list::-webkit-scrollbar{
+    display: none;
+}
+container .carousel-img-list .image-item{
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+}
+/* container .book-card .book-img img{
+    mask-image: linear-gradient(0deg,black,transparent);
+    display: flex;
+    margin: auto;
+    width: 91vw;
+    object-fit: cover;
+} */
+container .book-card .book-details{
+    background-color: rebeccapurple;
+    padding: 1rem 5rem;
+}
+container .book-card .book-details ul{
+    list-style: none;
+}
+
 footer{
     padding: 0.5rem 3rem;
 }
