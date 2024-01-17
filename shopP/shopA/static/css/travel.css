@@ -77,8 +77,8 @@ nav .nav-center .book a:hover{
 
 container .book-card{
     position: relative;
-    background-color: red;
-    margin: 5rem 5rem;
+    /* background-color: red; */
+    margin: 5rem 0;
 }
 container .carousel{
     padding: 1rem 5rem;
@@ -95,7 +95,7 @@ container .carousel-img-list::-webkit-scrollbar{
 }
 container .carousel-img-list .image-item{
     width: 400px;
-    height: 500px;
+    height: 400px;
     object-fit: cover;
 }
 /* container .book-card .book-img img{
@@ -106,13 +106,22 @@ container .carousel-img-list .image-item{
     object-fit: cover;
 } */
 container .book-card .book-details{
-    background-color: rebeccapurple;
+    /* background-color: rebeccapurple; */
     padding: 1rem 5rem;
 }
 container .book-card .book-details ul{
     list-style: none;
 }
-
+container .book-card .book-details button{
+    border: none;
+    padding: 0.5rem 2rem;
+}
+container .book-card .book-details button:hover{
+    background-color: #333;
+    color: white;
+    cursor: alias;
+    transition: all 0.2s ease-in-out;
+}
 footer{
     padding: 0.5rem 3rem;
 }

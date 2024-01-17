@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link href="{%static 'img/text.svg'%}" rel="icon" type="img/icons"> 
+    <!--Css link-->
+    <link href="{%static 'css/form.css'%}" rel="stylesheet" type="text/css">
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&family=Merriweather:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Raleway&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <!--Fontawesome icon-->
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <!--JS link-->
+    <!-- <script src="{%static 'js/script.js'%}"></script> -->
+</head>
+<body>
+
+    <nav>
+        <div class="nav-head">
+            <img src="{%static 'img/T&T.png'%}" alt="logo" style="width: 4rem;"> 
+            <h1 style="font-family: 'Playfair Display',sans-serif;">Travel & Tourism</h1>
+        </div>
+    </nav>
+    
+    <container>
+        <form action="POST">
+            {%csrf_token%}
+            <h1>Form</h1>
+            <label>Passenger Name</label><br>
+            <input type="text" placeholder="First Name">
+            <input type="text" id="lastname" placeholder="Last Name"><br>
+            <label>Phone Number</label><br>
+            <input type="text" placeholder="##########"><br>
+            <label>Date of Transporation</label><br>
+            <input type="text" onfocus="(this.type='date')"><br> 
+            <label>Time of Transporation</label><br>
+            <input type="time"><br>
+            <label>Number of Passenger</label><br>
+            <input type="text" placeholder="Passenger?"><br>
+            <label>Type of Vehicle Requested</label><br>
+            <input type="radio" value="Sedan">Sedan
+            <input type="radio" value="SUV">SUV
+            <input type="radio" value="Bus">Bus
+            <input type="radio" value="Van">Van
+            <input type="radio" value="Other">Other<br>
+            <label>Special Requirements or Instructions</label><br>
+            <input type="text"><br>
+            <button type="submit">Submit Form</button>
+        </form>
+    </container>
+
+    <footer>
+        <div class="row">
+            <div class="col-1">
+                <h3>Follow Me</h3>
+                <div class="social-link">
+                    <a href="https://www.linkedin.com/in/edwin-james-3a27a411b/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/EdwinJ-19"><i class="fa-brands fa-square-github"></i></a>
+                    <a href="https://www.instagram.com/photographer.certified_19/"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-2">
+                <h4>Edwin James John</h4>
+                <p>Message me <a href="https://www.linkedin.com/in/edwin-james-3a27a411b/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></p>
+            </div>
+        </div>
+        <div class="last-line">
+            <p>© 2024 Edwin James John | Designed by <a href="https://github.com/EdwinJ-19" style="margin-left: 0.2rem;" target="_blank"><i class="fa-brands fa-github" style="font-size: 0.8rem;"></i></a>.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

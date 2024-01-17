@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Merriweather', serif;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1rem 3rem;
+}
+nav .nav-head img{
+    display: none;
+}
+@media (max-width:530px) and (min-width:370px){
+    nav .nav-head img{
+       display: block; 
+       margin-top: 2rem;
+    }
+    nav .nav-head h1{
+        display: none;
+    }
+    footer .row .col-1 h3{
+        font-size: 1.2rem;
+    }
+    footer .row .col-1 .social-link{
+        font-size: 1rem;
+    }
+    footer .row .col-2 h4,p{
+        font-size: 1rem;
+    }
+    footer .last-line p,i{
+        font-size: 0.5rem;
+    }
+}
+
+
+footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 0.5rem 3rem;
+}
+footer .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+footer .col-1 h3{
+    font-size: 2rem;
+}
+footer .col-1 .social-link{
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+footer .col-1 .social-link a{
+    padding-right: 1rem;
+    color: black;
+}
+footer .col-1 .social-link .fa-linkedin:hover{
+    color: #0077b5;
+    transition: all 0.5s ease-in-out;
+}
+footer .col-1 .social-link .fa-square-github:hover{
+    color: #333;
+    transition: all 0.5s ease-in-out;
+}
+footer .col-1 .social-link .fa-instagram:hover{
+    color: #962fbf;
+    transition: all 0.5s ease-in-out;
+}
+footer .col-2 h4{
+    font-size: 1.5rem;
+}
+footer .col-2 p{
+    float: right;
+    margin-top: 0.5rem;
+}
+footer .col-2 a{
+    text-decoration: none;
+    color: black;
+}
+footer .col-2 p .fa-linkedin-in:hover{
+    color: #0077b5;
+    transition: all 0.5s ease-in-out;
+}
+footer .last-line{
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: 2rem;
+}
+footer .last-line a{
+    font-size: 1rem;
+    color: black;
+    cursor: alias;
+}
