@@ -29,24 +29,25 @@
             {%csrf_token%}
             <h1>Form</h1>
             <label>Passenger Name</label><br>
-            <input type="text" placeholder="First Name">
-            <input type="text" id="lastname" placeholder="Last Name"><br>
+            <input type="text" placeholder="First Name" name="first_name">
+            <input type="text" id="lastname" placeholder="Last Name" name="last_name"><br>
             <label>Phone Number</label><br>
-            <input type="text" placeholder="##########"><br>
+            <input type="text" placeholder="##########" name="phone"><br>
             <label>Date of Transporation</label><br>
-            <input type="text" onfocus="(this.type='date')"><br> 
+            <input type="text" onfocus="(this.type='date')" name="date_transportation"><br> 
             <label>Time of Transporation</label><br>
-            <input type="time"><br>
+            <input type="time" name="time_transportation"><br>
             <label>Number of Passenger</label><br>
-            <input type="text" placeholder="Passenger?"><br>
+            <input type="text" placeholder="Passenger?" name="num_passenger"><br>
             <label>Type of Vehicle Requested</label><br>
-            <input type="radio" value="Sedan">Sedan
-            <input type="radio" value="SUV">SUV
-            <input type="radio" value="Bus">Bus
-            <input type="radio" value="Van">Van
-            <input type="radio" value="Other">Other<br>
+            <input type="radio" value="Sedan" name='sedan'>Sedan
+            <input type="radio" value="SUV" style="margin-left: 0.5rem;" name='suv'>SUV
+            <input type="radio" value="Bus" style="margin-left: 0.5rem;" name='bus'>Bus
+            <input type="radio" value="Van" style="margin-left: 0.5rem;" name='van'>Van
+            <input type="radio" value="Other" style="margin-left: 0.5rem;" name="other">Other<br>
             <label>Special Requirements or Instructions</label><br>
-            <input type="text"><br>
+            <!-- <input type="text" size="10"><br> -->
+            <textarea name="description" cols="30" rows="10" style="margin-top: 1rem;"></textarea><br>
             <button type="submit">Submit Form</button>
         </form>
     </container>

@@ -23,7 +23,7 @@ def log_page(request):
             login(request,user)
             return redirect ('main')
 
-    return render(request,'form.html')
+    return render(request,'log.html')
 
 def register(request):
 

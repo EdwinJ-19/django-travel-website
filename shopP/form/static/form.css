@@ -16,7 +16,7 @@ nav{
 nav .nav-head img{
     display: none;
 }
-@media (max-width:530px) and (min-width:370px){
+@media (max-width:530px) and (min-width:300px){
     nav .nav-head img{
        display: block; 
        margin-top: 2rem;
@@ -36,8 +36,41 @@ nav .nav-head img{
     footer .last-line p,i{
         font-size: 0.5rem;
     }
+    form{
+        font-size: 0.5rem;
+    }
+    form input{
+        margin: 0rem;
+        font-size: 0.5rem;
+    }
 }
-
+container{
+    display: flex;
+    flex-wrap: wrap;
+}
+form{
+    margin: auto;
+    text-align: center;
+    /* margin-top: 5vh; */
+}
+form input{
+    margin: 1rem 0;
+    padding: 0 2rem;
+    text-align: center;
+}
+form button{
+    margin-top: 1rem;
+    border: none;
+    padding: 0.5rem 2rem;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+form button:hover{
+    border-radius: 1rem;
+    transition: all 0.2s ease-in-out;
+    background-color: #D3D3D3;
+    color: black;
+}
 
 footer{
     position: absolute;
