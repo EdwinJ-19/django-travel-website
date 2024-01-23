@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views 
-from form.views import *
+from form.urls import *
 
 urlpatterns=[
     path('',views.log_page,name='login'),

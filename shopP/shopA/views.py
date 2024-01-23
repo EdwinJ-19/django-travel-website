@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
+# from form.models import *
 
 
 def log_page(request):
@@ -60,3 +61,6 @@ def book(request):
 
 def about(request):
     return render(request,'about.html')
+
+# def form(request):
+#     return render(request,'form.html')

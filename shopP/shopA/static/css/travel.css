@@ -78,7 +78,7 @@ nav .nav-center .book a:hover{
 container .book-card{
     position: relative;
     /* background-color: red; */
-    margin: 5rem 0;
+    margin: 3rem 0;
 }
 container .carousel{
     padding: 1rem 5rem;
@@ -107,16 +107,22 @@ container .carousel-img-list .image-item{
 } */
 container .book-card .book-details{
     /* background-color: rebeccapurple; */
-    padding: 1rem 5rem;
+    margin: 0 3rem;
+    padding: 1rem 2rem;
 }
 container .book-card .book-details ul{
     list-style: none;
+
 }
-container .book-card .book-details button{
-    border: none;
+container .book-card .book-details .b-d-link{
+    margin-top: 1rem;
+}
+container .book-card .book-details .b-d-link a{
+    text-decoration: none;
+    color: black;
     padding: 0.5rem 2rem;
 }
-container .book-card .book-details button:hover{
+container .book-card .book-details a:hover{
     background-color: #333;
     color: white;
     cursor: alias;
