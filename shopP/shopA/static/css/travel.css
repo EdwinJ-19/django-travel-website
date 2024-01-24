@@ -119,14 +119,17 @@ container .book-card .book-details .b-d-link{
 }
 container .book-card .book-details .b-d-link a{
     text-decoration: none;
+    border: 1px solid lightgrey;
+    box-shadow: 2px 4px 4px black;
     color: black;
     padding: 0.5rem 2rem;
 }
-container .book-card .book-details a:hover{
+container .book-card .book-details .b-d-link a:hover{
     background-color: #333;
     color: white;
     cursor: alias;
     transition: all 0.2s ease-in-out;
+    border-color: black;
 }
 footer{
     padding: 0.5rem 3rem;

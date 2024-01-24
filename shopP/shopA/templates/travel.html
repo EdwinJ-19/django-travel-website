@@ -31,32 +31,34 @@
    </nav>
 
     <container>
-    
     <div class="book-card">
         <div class="carousel">
             <div class="carousel-img-list">
-                <img src="{%static 'img/carousel/1.jpg'%}" alt="1" class="image-item">
-                <img src="{%static 'img/carousel/2.jpg'%}" alt="2" class="image-item">
-                <img src="{%static 'img/carousel/3.jpg'%}" alt="3" class="image-item">
-                <img src="{%static 'img/carousel/4.jpg'%}" alt="4" class="image-item">
-                <img src="{%static 'img/carousel/5.jpg'%}" alt="5" class="image-item">
-                <img src="{%static 'img/carousel/6.jpg'%}" alt="6" class="image-item">
-                <img src="{%static 'img/carousel/7.jpg'%}" alt="7" class="image-item">
+                {% for d in data %}
+                <img src="{{d.carousel}}" alt="1" class="image-item">
+                <img src="{{d.carousel}}" alt="2" class="image-item">
+                <img src="{{d.carousel}}" alt="3" class="image-item">
+                <img src="{{d.carousel}}" alt="4" class="image-item">
+                <img src="{{d.carousel}}" alt="5" class="image-item">
+                <img src="{{d.carousel}}" alt="6" class="image-item">
+                <img src="{{d.carousel}}" alt="7" class="image-item">
             </div>
         </div>
         <div class="book-details">
-            <h1 style="margin-bottom: 1rem;">Head</h1>
-            <p class="travel-details" style="margin-bottom: 1rem;">Sentence</p>
+            <h1 style="margin-bottom: 1rem;">{{d.head}}</h1>
+            <p class="travel-details" style="margin-bottom: 1rem; font-weight: bolder;">{{d.sentence}}</p>
+            <h1 style="margin-bottom: 1rem;">Details</h1>
             <ul>
-                <li>Destination</li>
-                <li>Nearby Places</li>
-                <li>What good in this place?</li>
-                <li>Transporation</li>
-                <li>Price</li>
+                <li>{{d.destination}}</li><br>
+                <li>{{d.nearby}}</li><br>
+                <li>{{d.attraction}}</li><br>
+                <li>{{d.transportation}}</li><br>
+                <li>Rs. {{d.price}}</li>
             </ul>
+            {% endfor %}
             <!-- <button type="submit" style="margin:1rem 0;">Book</button> -->
             <div class="b-d-link">
-                <a href="{%url 'form'%}">Book</a>
+                <a href="{%url 'form'%}">Book Now!</a>
             </div>
         </div>
     </div>

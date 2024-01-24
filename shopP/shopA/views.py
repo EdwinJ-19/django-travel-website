@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
+from shopA.models import crud
 # from form.models import *
 
 
@@ -57,7 +58,8 @@ def main(request):
     return render(request,'main.html')
 
 def book(request):
-    return render(request,'travel.html')
+    data=crud.objects.all()
+    return render(request,'travel.html',{'data':data})
 
 def about(request):
     return render(request,'about.html')

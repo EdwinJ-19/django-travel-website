@@ -46,7 +46,8 @@
         <input type="search" placeholder="Select Your Destination">
         <input type="text" onfocus="(this.type=date)" min="2024-01-04" max="2024-01-30" placeholder="Check-In">
         <input type="text" onfocus="(this.type=date)" min="2024-01-05" max="2024-02-30" placeholder="Check-Out">
-        <button type="submit">Search</button>
+        <!-- <button type="submit">Search</button> -->
+        <a href="{%url 'travel'%}">Search</a>
     </div>
 
         <div class="grid">
@@ -65,7 +66,7 @@
         </div>
 
         <div class="butn">
-            <a href="#">Book Now to Travel!</a>
+            <a href="{%url 'travel'%}">Book Now to Travel!</a>
         </div>
 
     </container>

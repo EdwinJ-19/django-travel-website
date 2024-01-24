@@ -19,3 +19,22 @@ class Login(models.Model):
     phone = models.CharField(max_length=10,unique=True)
     class Meta:
         db_table = "USER"
+
+class crud(models.Model):
+    head = models.CharField(max_length=50)
+    sentence = models.CharField(max_length=200)
+    destination = models.CharField(max_length=50,unique=True)
+    nearby = models.CharField(max_length=200)
+    attraction = models.CharField(max_length=200)
+    transportation = models.CharField(max_length=200)
+    price = models.IntegerField()
+
+    class Meta:
+        db_table = 'travel_card'
+
+class image(models.Model):
+    name = models.TextField(max_length=100)
+    carousel = models.ImageField(upload_to='carousel_image')
+
+    class Meta:
+        db_table = 'carousel_img'
