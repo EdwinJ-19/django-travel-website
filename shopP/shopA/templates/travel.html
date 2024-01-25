@@ -25,16 +25,16 @@
             <li><a href="{%url 'main'%}">Home</a></li>
             <li><a href="{%url 'out_page'%}"><i class="fa-regular fa-user" style="margin-right: 0.5rem;"></i>{{request.user.first_name|capfirst}}</a></li>
             <li><a href="{%url 'about'%}">About Me</a></li>
-            <li><a href="" class="active">Book</a></li>
+            <li><a href="#" class="active">Book</a></li>
         </ul>
     </div>
    </nav>
 
     <container>
+    {% for d in data %}
     <div class="book-card">
         <div class="carousel">
             <div class="carousel-img-list">
-                {% for d in data %}
                 <img src="{{d.carousel}}" alt="1" class="image-item">
                 <img src="{{d.carousel}}" alt="2" class="image-item">
                 <img src="{{d.carousel}}" alt="3" class="image-item">
@@ -55,13 +55,13 @@
                 <li>{{d.transportation}}</li><br>
                 <li>Rs. {{d.price}}</li>
             </ul>
-            {% endfor %}
             <!-- <button type="submit" style="margin:1rem 0;">Book</button> -->
             <div class="b-d-link">
                 <a href="{%url 'form'%}">Book Now!</a>
             </div>
         </div>
     </div>
+    {% endfor %}
 
     </container>
 

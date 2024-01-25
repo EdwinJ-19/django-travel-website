@@ -55,7 +55,13 @@ def out_page(request):
     return render(request,'logout.html')
 
 def main(request):
-    return render(request,'main.html')
+    data = crud.objects.all()
+    if request.method == 'GET':
+        st=request.GET.get('searchname')
+        if st!=None:
+            data =crud.objects.filter(head__contains=st)
+            return render(request,'travel-page.html',{'data':data})
+    return render(request,'main.html',{'data':data})
 
 def book(request):
     data=crud.objects.all()
@@ -63,6 +69,19 @@ def book(request):
 
 def about(request):
     return render(request,'about.html')
+
+def travel_page(request):
+    data = crud.objects.all()
+    if request.method == 'GET':
+        st=request.GET.get('searchname')
+        loc=request.GET.get('location')
+        price=request.GET.get('price')
+        if st!=None:
+            data=crud.objects.filter(head__contains=st)
+            data=crud.objects.filter(destination__contains=loc)
+            data=crud.objects.filter(price__contains= price)
+            return render(request,'travel.html',{'data':data})
+    return render(request,'travel-page.html',{'data':data})
 
 # def form(request):
 #     return render(request,'form.html')
