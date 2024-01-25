@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from shopA.models import crud
+from django.db.models import Q
 # from form.models import *
 
 
@@ -56,15 +57,15 @@ def out_page(request):
 
 def main(request):
     data = crud.objects.all()
-    if request.method == 'GET':
+    if request.method =='GET':
         st=request.GET.get('searchname')
         if st!=None:
-            data =crud.objects.filter(head__contains=st)
+            data=crud.objects.filter(head=st)
             return render(request,'travel-page.html',{'data':data})
     return render(request,'main.html',{'data':data})
 
 def book(request):
-    data=crud.objects.all()
+    data = crud.objects.all()
     return render(request,'travel.html',{'data':data})
 
 def about(request):
@@ -72,16 +73,21 @@ def about(request):
 
 def travel_page(request):
     data = crud.objects.all()
-    if request.method == 'GET':
-        st=request.GET.get('searchname')
-        loc=request.GET.get('location')
-        price=request.GET.get('price')
-        if st!=None:
-            data=crud.objects.filter(head__contains=st)
-            data=crud.objects.filter(destination__contains=loc)
-            data=crud.objects.filter(price__contains= price)
+    if request.method =='GET':
+        sn=request.GET.get('searchname')
+        if sn!=None:
+            data=crud.objects.filter(head=sn)
             return render(request,'travel.html',{'data':data})
     return render(request,'travel-page.html',{'data':data})
 
 # def form(request):
 #     return render(request,'form.html')
+ 
+# def search(request):
+    
+#     if request.method =="POST":
+#         searchvalue = request.POST['search-name']
+#         data = crud.object.filter(Q(head__icontains = searchvalue)) #| Q(sentence__icontains = searchvalue) | Q(destination__icontains = searchvalue) | Q(nearby__icontains = searchvalue)| Q(attraction__icontains = searchvalue) | Q(transportation__icontains = searchvalue) | Q(price__icontains = searchvalue)
+#         return render(request,'travel-page.html',{'data' :data})
+#     else:
+#         return render(request,'main.html')

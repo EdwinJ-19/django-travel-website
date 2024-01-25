@@ -25,13 +25,14 @@
             <li><a href="{%url 'main'%}">Home</a></li>
             <li><a href="{%url 'out_page'%}"><i class="fa-regular fa-user" style="margin-right: 0.5rem;"></i>{{request.user.first_name|capfirst}}</a></li>
             <li><a href="{%url 'about'%}">About Me</a></li>
-            <li><a href="#" class="active">Book</a></li>
+            <li class="book"><a href="{%url 'travel-page'%}">Book</a></li>
         </ul>
     </div>
    </nav>
 
     <container>
     {% for d in data %}
+    <form method="POST">
     <div class="book-card">
         <div class="carousel">
             <div class="carousel-img-list">
@@ -61,7 +62,8 @@
             </div>
         </div>
     </div>
-    {% endfor %}
+    </form>
+    {%endfor%}
 
     </container>
 
