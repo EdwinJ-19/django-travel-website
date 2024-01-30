@@ -42,12 +42,42 @@
         </div>
 
         
-    <div class="nav-search">
+    <!-- <div class="nav-search">
         <form method="get">
-        <input type="search" name="searchname" placeholder="Select Your Destination">
+        {% csrf_token %}
+        <input type="text" name="searchname" placeholder="Select Your Destination">
         <button type="submit">Search</button>
-        <!-- <a href="{%url 'travel'%}">Search</a> -->
+        <a href="{%url 'travel'%}">Search</a>
         </form>
+    </div> -->
+    <div class="box-details">
+        <div class="left-box">
+            <div class="row">
+                <div class="necess-1">
+                    <i class="fa-solid fa-tree-city"></i>
+                    <p>Availability of nearby <br>Restuarants and Hotels</p>
+                </div>
+                <div class="necess-2">
+                    <i class="fa-solid fa-truck-plane"></i>
+                    <p>Availability of transportation <br> like car, bus and train.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="necess-1">
+                    <i class="fa-solid fa-stethoscope"></i>
+                    <p>Availability of needs and<br> pantry.</p>
+                </div>
+                <div class="necess-2">
+                    <i class="fa-solid fa-camera-retro"></i>
+                    <p>Take a shot to have a memory<br> with your strangers,family <br> and friends.</p>
+                </div>
+            </div>
+        </div>
+        <div class="right-box">
+            <h2>It's time to start your ADVENTURE!</h2>
+            <p>Travel to any corner of an India, understand the <br>culture of an India.</p>
+            <p>It's better to see something nice than to hear <br>about it a thousand times.</p>
+        </div>
     </div>
 
         <div class="grid">

@@ -71,13 +71,23 @@ nav .nav-center .book a:hover{
         height: 100%;
         font-size: 0.6rem;
     }
+    container .box-details{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem 8rem;
+        background-color: red;
+    }
+    container .box-details .right-box{
+        text-align: center;
+    }
 }
 @media (max-width:390px){
     footer{
         top: 95vh;
     }
 }
-container .nav-search{
+/* container .nav-search{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -100,7 +110,48 @@ container .nav-search button:hover{
     background-color: navy;
     color: white;
     border-radius: 3rem;
+} */
+container .box-details{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+    /* background-color: red; */
+    flex-wrap: wrap;
+    margin: 1rem 6rem;
+    padding: 1rem;
+    border: 1px hidden black;
+    box-shadow: 1px 5px 5px lightgrey;
 }
+/* container .left-box{
+    display: flex;
+    flex-wrap: wrap;
+} */
+container .left-box .row{
+    /* background-color: rebeccapurple; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+container .left-box .row .necess-1{
+    font-size: 2rem;
+}
+container .left-box .row .necess-1 p{
+font-size: 0.8rem
+}
+container .left-box .row .necess-2{
+    font-size: 2rem;
+}
+container .left-box .row .necess-2 p{
+    font-size: 0.8rem;
+}
+container .right-box p{
+    margin-top: 1rem;
+}
+
 container .carousel-img-list{
     display: grid;
     grid-template-columns: repeat(7,1fr);

@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from shopA.models import crud
 from django.db.models import Q
+from .models import *
 # from form.models import *
 
 
@@ -56,15 +57,15 @@ def out_page(request):
     return render(request,'logout.html')
 
 def main(request):
-    data = crud.objects.all()
-    if request.method =='GET':
-        st=request.GET.get('searchname')
-        if st!=None:
-            data=crud.objects.filter(head=st)
-            return render(request,'travel-page.html',{'data':data})
-    return render(request,'main.html',{'data':data})
+    # data = crud.objects.all()
+    # if request.method =='GET':
+    #     st=request.GET.get('searchname')
+    #     if st!=None:
+    #         data=crud.objects.filter(head=st)
+    #         return render(request,'travel-page.html',{'data':data})
+    return render(request,'main.html')
 
-def book(request):
+def travel(request):
     data = crud.objects.all()
     return render(request,'travel.html',{'data':data})
 
@@ -75,6 +76,8 @@ def travel_page(request):
     data = crud.objects.all()
     if request.method =='GET':
         sn=request.GET.get('searchname')
+        # lc=request.GET.get('location')
+        # pr=request.GET.get('price')
         if sn!=None:
             data=crud.objects.filter(head=sn)
             return render(request,'travel.html',{'data':data})
@@ -86,8 +89,9 @@ def travel_page(request):
 # def search(request):
     
 #     if request.method =="POST":
-#         searchvalue = request.POST['search-name']
-#         data = crud.object.filter(Q(head__icontains = searchvalue)) #| Q(sentence__icontains = searchvalue) | Q(destination__icontains = searchvalue) | Q(nearby__icontains = searchvalue)| Q(attraction__icontains = searchvalue) | Q(transportation__icontains = searchvalue) | Q(price__icontains = searchvalue)
-#         return render(request,'travel-page.html',{'data' :data})
+#         searchvalue = request.POST['search']
+#         data = crud.object.filter(Q(head__icontains = searchvalue)| Q(sentence__icontains = searchvalue) | Q(destination__icontains = searchvalue) | Q(nearby__icontains = searchvalue)| Q(attraction__icontains = searchvalue) | Q(transportation__icontains = searchvalue) | Q(price__icontains = searchvalue)) 
+#         return render(request,'travel.html',{'data':data},{'searchvalue':searchvalue})
 #     else:
-#         return render(request,'main.html')
+#         data = crud.objects.all()
+#         return render(request,'travel-page.html',{'data':data})
