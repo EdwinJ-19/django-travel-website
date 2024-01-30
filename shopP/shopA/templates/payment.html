@@ -25,23 +25,12 @@
             <li><a href="{%url 'main'%}">Home</a></li>
             <li><a href="{%url 'out_page'%}"><i class="fa-regular fa-user" style="margin-right: 0.5rem;"></i>{{request.user.first_name|capfirst}}</a></li>
             <li><a href="{%url 'about'%}">About Me</a></li>
-            <li><a href="#" class="active">Book</a></li>
+            <li><a href="#" class="active">Payment</a></li>
         </ul>
     </div>
    </nav>
 
     <container>
-
-        <form method="get">
-            <!-- {%csrf_token%} -->
-        <div class="nav-search">
-            <input type="search" name="searchname" placeholder="Select Your Destination">
-            <input type="location" name="search" placeholder="Exact-Location">
-            <input type="price" name="search" placeholder="Price">
-            <button type="submit">Search</button>
-            <!-- <a href="{%url 'travel'%}">Search</a> -->
-        </div>
-        </form>
     
         {%for d in data%}
         <form method="POST">
@@ -56,7 +45,8 @@
                 <p>Rs. {{d.price}}</p>
                 <!-- <a href="{%url 'travel'%}">More Details</a> -->
                 <!-- <button type="button" name="more-details">More Details</button> -->
-                
+                <!--Payment Integration-->
+                <button type="button" class="payment">Pay</button>
             </div>
         </div>
         </form>

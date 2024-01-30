@@ -1,0 +1,5 @@
+key_id
+rzp_test_uciLV2MjwDiOsF	
+
+key_secret
+KSw85X9ADlzSpbwM7lJ1St8W

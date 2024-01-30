@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
-    <link href="{%static 'img/text.svg'%}" rel="icon" type="img/icons"> 
+    <link href="{%static 'img/id_form.svg'%}" rel="icon" type="img/icons"> 
     <!--Css link-->
     <link href="{%static 'css/form.css'%}" rel="stylesheet" type="text/css">
     <!--google font-->
@@ -25,9 +25,16 @@
     </nav>
     
     <container>
-        <form method="post">
+        <form method="POST">
             {%csrf_token%}
             <h1>Form</h1>
+            {% if messages %}
+                <ul class="messages" style="background-color: lightblue; border: 1px solid blue; border-radius: 1rem;padding: 0.5rem 0; margin-bottom: 1rem; list-style: none;">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
             <label>Passenger Name</label><br>
             <input type="text" placeholder="First Name" name="first_name">
             <input type="text" id="lastname" placeholder="Last Name" name="last_name"><br>
@@ -38,17 +45,21 @@
             <label>Time of Transporation</label><br>
             <input type="time" name="time_transportation"><br>
             <label>Number of Passenger</label><br>
-            <input type="text" placeholder="Passenger?" name="num_passenger"><br>
+            <input type="text" placeholder="Passenger?" name="passenger"><br>
             <label>Type of Vehicle Requested</label><br>
-            <input type="radio" value="Sedan" name='sedan'>Sedan
+            <input type="text" placeholder="Vehicle" name="vehicle"><br>
+            <!-- <input type="radio" value="Sedan" name='sedan'>Sedan
             <input type="radio" value="SUV" style="margin-left: 0.5rem;" name='suv'>SUV
             <input type="radio" value="Bus" style="margin-left: 0.5rem;" name='bus'>Bus
             <input type="radio" value="Van" style="margin-left: 0.5rem;" name='van'>Van
-            <input type="radio" value="Other" style="margin-left: 0.5rem;" name="other">Other<br>
+            <input type="radio" value="Other" style="margin-left: 0.5rem;" name="other">Other<br> -->
             <label>Special Requirements or Instructions</label><br>
             <!-- <input type="text" size="10"><br> -->
             <textarea name="description" cols="30" rows="10" style="margin-top: 1rem;"></textarea><br>
             <button type="submit">Submit Form</button>
+
+            <!--Payment Integration-->
+            <button type="button" class="payment">Pay</button>
         </form>
     </container>
 

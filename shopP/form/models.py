@@ -6,12 +6,9 @@ class form(models.Model):
     phone = models.DecimalField(max_digits=10,decimal_places=0)
     date_transportation = models.DateField()
     time_transportation = models.TimeField()
-    sedan = models.BooleanField(default=False)
-    suv = models.BooleanField(default=False)
-    bus = models.BooleanField(default=False)
-    van = models.BooleanField(default=False)
-    other = models.BooleanField(default=False)
+    vehicle = models.TextField(max_length=100)
     description = models.TextField()
+    passenger = models.IntegerField()
     
 
     def __str__(self):

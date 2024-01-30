@@ -10,7 +10,8 @@ urlpatterns=[
     path('travel/',views.travel,name='travel'),
     path('about/',views.about,name='about'),
     path('logout/',views.out_page,name='out_page'),
-    path('form/',views.form,name='form'),
+    path('form/',views.form_page,name='form'),
+    path('payment/',views.payment,name='payment')
     # path('search',views.search,name='search')
     # path('logout/',views.logout, name='logout')
 ]
