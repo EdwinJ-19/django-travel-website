@@ -9,8 +9,18 @@ body::-webkit-scrollbar{
 nav{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     padding: 1rem 3rem;
+}
+nav a{
+    text-decoration: none;
+    color: black;
+}
+nav a:hover{
+    font-weight: bolder;
+    transition: all 0.1s ease-in-out;
+    cursor: alias;
 }
 nav .nav-head img{
     display: none;

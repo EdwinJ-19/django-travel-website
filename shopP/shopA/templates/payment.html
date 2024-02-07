@@ -29,8 +29,15 @@
         </ul>
     </div>
    </nav>
-
     <container>
+
+        {% if messages %}
+                <ul class="messages" style="background-color: lightblue; border: 1px solid blue; border-radius: 1rem;padding: 1rem 0; margin-bottom: 1rem;">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+        {% endif %}
     
         {%for d in data%}
         <form method="POST">
@@ -46,11 +53,45 @@
                 <!-- <a href="{%url 'travel'%}">More Details</a> -->
                 <!-- <button type="button" name="more-details">More Details</button> -->
                 <!--Payment Integration-->
-                <button type="button" class="payment">Pay</button>
+                <button class="btn" id="payment">Pay</button>
+                <!-- <a href="//rzp.io/l/s34EIhlsC">Pay</a> -->
             </div>
         </div>
+        <!-- Razorpay's Javascript code. -->
+        <!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script> -->
+        <!-- <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_NVVyCobJSY2Pa8" async></script> -->
         </form>
         {% endfor %}
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <script>
+            var options = {
+            
+            // Enter the Key ID generated from the Dashboard
+            key: "{{ razorpay_merchant_key }}", 
+            
+            // Amount is in currency subunits.
+            // Default currency is INR. Hence, 
+            // 50000 refers to 50000 paise
+            amount: "{{ razorpay_amount }}", 
+            currency: "{{ currency }}",
+            
+            // Your/store name.
+            name: "Dj Razorpay", 
+            
+            // Pass the `id` obtained in the response of Step 1
+            order_id: "{{ razorpay_order_id }}", 
+            callback_url: "{{ callback_url }}",
+            };
+            
+            // initialise razorpay with the options.
+            var rzp1 = new Razorpay(options);
+            
+            // add event listener to the payment button.
+            document.getElementById("payment").onclick = function (e) {
+            rzp1.open();
+            e.preventDefault();
+            };
+        </script>
     </container>
 
     <footer>

@@ -1,5 +1,2 @@
-key_id
-rzp_test_uciLV2MjwDiOsF	
-
-key_secret
-KSw85X9ADlzSpbwM7lJ1St8W
+RAZOR_KEY_ID = 'rzp_test_Q22Da6DcHIa2Mv'
+RAZOR_KEY_SECRET = 'LxZNXylMqw5DlDUy9Gol2Sw6'
