@@ -128,34 +128,54 @@ def travel_page(request):
 razorpay_client = razorpay.Client(
 	auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
 
+# def payment(request):
+#     currency = 'INR'
+#     amount = 20000
+# 	# Create a Razorpay Order
+#     razorpay_order = razorpay_client.order.create(dict(amount=amount,
+# 													currency=currency,
+#                                                     payment_capture='0'))
+
+#     data = crud.objects.all()
+# 	# order id of newly created order.
+#     razorpay_order_id = razorpay_order['id']
+#     callback_url = 'paymenthandler/'
+# 	# we need to pass these details to frontend.
+#     context = {}
+#     context['razorpay_order_id'] = razorpay_order_id
+#     context['razorpay_merchant_key'] = settings.RAZOR_KEY_ID
+#     context['razorpay_amount'] = amount
+#     context['currency'] = currency
+#     context['callback_url'] = callback_url
+
+#     return render(request, 'payment_page.html', {'data':data,'context':context})
+@csrf_exempt
 def payment(request):
-    currency = 'INR'
-    amount = 20000
+	currency = 'INR'
+	amount = 20000 # Rs. 200
 	# Create a Razorpay Order
-    razorpay_order = razorpay_client.order.create(dict(amount=amount,
-													currency=currency,
-                                                    payment_capture='0'))
+	razorpay_order = razorpay_client.order.create(dict(amount=amount,
+													currency=currency,payment_capture='0'))
 
-    data = crud.objects.all()
 	# order id of newly created order.
-    razorpay_order_id = razorpay_order['id']
-    callback_url = 'paymenthandler/'
+	razorpay_order_id = razorpay_order['id']
+	# callback_url = 'travel-page.html'
 	# we need to pass these details to frontend.
-    context = {}
-    context['razorpay_order_id'] = razorpay_order_id
-    context['razorpay_merchant_key'] = settings.RAZOR_KEY_ID
-    context['razorpay_amount'] = amount
-    context['currency'] = currency
-    context['callback_url'] = callback_url
+	context = {}
+	context['razorpay_order_id'] = razorpay_order_id
+	context['razorpay_merchant_key'] = settings.RAZOR_KEY_ID
+	context['razorpay_amount'] = amount
+	context['currency'] = currency
+	context['callback_url'] = 'http://127.0.0.1:8000/travel-page/'
 
-    return render(request, 'payment.html', {'data':data,'context':context})
+	return render(request, 'payment_page.html', context=context)
 
 
 # we need to csrf_exempt this url as
 # POST request will be made by Razorpay
 # and it won't have the csrf token.
-@csrf_exempt
 
+@csrf_exempt
 def paymenthandler(request):
 
 	# only accept POST request.
@@ -189,7 +209,7 @@ def paymenthandler(request):
 
 					# if there is an error while capturing payment.
 					messages.error('Payment Failed, Please Try Again!')
-					return render(request, 'payment.html')
+					return render(request, 'payment_page.html')
 		except:
 
 			# if we don't find the required parameters in POST data

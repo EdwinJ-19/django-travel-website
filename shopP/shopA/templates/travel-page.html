@@ -45,7 +45,7 @@
     
         {%for d in data%}
         <form method="POST">
-            {%csrf_token%}
+            {% csrf_token %}
         <div class="small-card">
             <div class="img">
                 <img src="{%static 'img/carousel/1.jpg'%}" alt="img-1">
