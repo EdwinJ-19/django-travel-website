@@ -1,69 +1,52 @@
 <!DOCTYPE html>
+{%load static%}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PaymentSystem</title>
-    <style>
-      * {
-        box-sizing: border-box;
-        padding: 0px;
-        margin: 0px;
-        font-family: cursive;
-      }
-      html,
-      body {
-        height: 100%;
-      }
-      body {
-        background-color: #f1f5f8;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .card {
-        background-color: white;
-        padding: 25px;
-        border: 1px solid #bbbbbb;
-        border-radius: 5px;
-        box-shadow: 1px 1px 10px 0px rgb(0 0 0 / 25%);
-      }
-      .title {
-        text-align: center;
-        letter-spacing: 1px;
-      }
-      .muted {
-        color: #8e7f7f;
-        display: block;
-        margin-bottom: 10px;
-        text-align: center;
-      }
-      .btn_container {
-        padding: 20px;
-        text-align: center;
-      }
-      .btn {
-        border-radius: 4px;
-        cursor: pointer;
-        padding: 4px 8px;
-        background-color: #ffaaa7;
-        color: white;
-        font-size: 1.2em;
-        font-weight: 600;
-        letter-spacing: 1px;
-      }
-    </style>
+    <title>Payment</title>
+    <link href="{%static 'img/hotel.svg'%}" rel="icon" type="img/icons"> 
+    <!--Css link-->
+    <link href="{%static 'css/payment.css'%}" rel="stylesheet" type="text/css">
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&family=Long+Cang&family=Merriweather:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Raleway&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <!--Fontawesome icon-->
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
   </head>
   <body>
-    <div class="card">
-      <h1 class="title">Buy Me</h1>
-      <small class="muted">If you like my items, you can support me by donating ₹200</small>
-      <div class="btn_container">
-        <!-- Payment Button -->
-        <button class="btn" id="pay-btn">Donate</button>
+
+    <container>
+      <form method="POST">
+        <div class="box">
+          <h1>Payment</h1>
+          <p>Pay here for entry and travel!</p>
+          <!-- Payment Button -->
+          <button id="pay-btn">Pay</button>
+        </div>
+      </form>
+    </container>
+    
+    <footer>
+      <div class="row">
+          <div class="col-1">
+              <h3>Follow Me</h3>
+              <div class="social-link">
+                  <a href="https://www.linkedin.com/in/edwin-james-3a27a411b/"><i class="fa-brands fa-linkedin"></i></a>
+                  <a href="https://github.com/EdwinJ-19"><i class="fa-brands fa-square-github"></i></a>
+                  <a href="https://www.instagram.com/photographer.certified_19/"><i class="fa-brands fa-instagram"></i></a>
+              </div>
+          </div>
+          <div class="col-2">
+              <h4>Edwin James John</h4>
+              <p>Message me <a href="https://www.linkedin.com/in/edwin-james-3a27a411b/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></p>
+          </div>
       </div>
-    </div>
+      <div class="last-line">
+          © 2024 Edwin James John | Designed by <a href="https://github.com/EdwinJ-19" style="margin-left: 0.2rem;" target="_blank"><i class="fa-brands fa-github"></i></a>.
+      </div>
+     </footer>
+  
   </body>
 
   <!-- Razorpay's Javascript code. -->

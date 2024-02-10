@@ -9,6 +9,7 @@ from form.models import form
 import razorpay
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponseBadRequest
 
 def form_page(request):
@@ -96,6 +97,7 @@ def travel(request):
 def about(request):
     return render(request,'about.html')
 
+@csrf_protect
 def travel_page(request):
     data = crud.objects.all()
     if request.method =='GET':
@@ -149,7 +151,10 @@ razorpay_client = razorpay.Client(
 #     context['callback_url'] = callback_url
 
 #     return render(request, 'payment_page.html', {'data':data,'context':context})
-@csrf_exempt
+# def payment_page(request):
+#     data = crud.objects.all()
+#     return render(request,'payment_page.html',{'data':data})
+
 def payment(request):
 	currency = 'INR'
 	amount = 20000 # Rs. 200
@@ -166,7 +171,7 @@ def payment(request):
 	context['razorpay_merchant_key'] = settings.RAZOR_KEY_ID
 	context['razorpay_amount'] = amount
 	context['currency'] = currency
-	context['callback_url'] = 'http://127.0.0.1:8000/travel-page/'
+	# context['callback_url'] = 'http://127.0.0.1:8000'
 
 	return render(request, 'payment_page.html', context=context)
 
@@ -204,7 +209,7 @@ def paymenthandler(request):
 
 					# render success page on successful caputre of payment
 					messages.info('Payment Successful!')
-					return render(request, 'travel-page.html')
+					return render(request, 'main.html')
 				except:
 
 					# if there is an error while capturing payment.

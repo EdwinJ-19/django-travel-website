@@ -88,74 +88,38 @@ nav .nav-center .book a:hover{
         top: 95vh;
     }
 }
-container .nav-search{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    /* background-color: rebeccapurple; */
-}
-container .nav-search input{
-    padding: 1rem 4rem;
-    text-align: center;
-}
-container .nav-search button{
-    border: none;
-    padding: 1rem 2rem;
-    box-shadow: 2px 5px 5px lightgrey;
-}
-container .nav-search button:hover{
-    transition: all 0.5s ease-in-out;
-    background-color: navy;
-    color: white;
-    border-radius: 3rem;
-}
-container .small-card{
-    display: flex;
-    align-items: center;
-    gap: 5rem;
-    flex-wrap: wrap;
-    margin: 1rem 5rem;
-    padding: 1rem 1rem;
-    /* background-color: red; */
-}
-container .small-card .img img{
-    width: 25vw;
-    height: 20vh;
-    object-fit: cover;
-}
-container .small-card .small-details h1,p{
-    margin-bottom: 1rem;
-}
-container .small-card .small-details a{
-    text-decoration: none;
-    color: black;
-    box-shadow: 2px 5px 5px lightgrey;
-    padding: 0.5rem 1rem;
-    /* background-color: rebeccapurple; */
-}
-container .small-card .small-details a:hover{
-    color: white;
-    background-color: black;
-    transition: all 0.2s ease-in-out;
-    cursor: alias;
-}
-container .small-card .small-details button{
-    background-color: white;
-    border: none;
-    padding: 0.5rem 2rem;
-    box-shadow: 2px 5px 5px lightgrey;
-}
-container .small-card .small-details button:hover{
-    background-color: #0077b5;
-    color: white;
-}
 
+container .box{
+    /* background-color: red; */
+    display: block;
+    margin: auto;
+    margin-top: 30vh;
+    text-align: center;
+    padding: 5rem 0;
+    border: 1px hidden black;
+    box-shadow: 2px 2px 5px 10px lightgrey;  /*box-shadow: h-offset,v-offset,blur,spread color; */
+    width: 50%;
+}
+container .box h1{
+    padding-bottom: 1rem;
+}
+container .box p{
+    padding-bottom: 1rem;
+}
+container .box button{
+    border: none;
+    padding: 0.5rem 1.5rem;
+    box-shadow: 2px 5px 5px lightgrey;
+}
+container .box button:hover{
+    transition: all 0.2s ease-in-out;
+    background-color: #333;
+    color: white;
+}
 
 footer{
     padding: 0.5rem 3rem;
-    position: static;
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
