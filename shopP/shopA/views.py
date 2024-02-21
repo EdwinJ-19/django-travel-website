@@ -9,7 +9,6 @@ from form.models import form
 import razorpay
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
-from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponseBadRequest
 
 def form_page(request):
@@ -97,7 +96,6 @@ def travel(request):
 def about(request):
     return render(request,'about.html')
 
-@csrf_protect
 def travel_page(request):
     data = crud.objects.all()
     if request.method =='GET':
@@ -127,8 +125,6 @@ def travel_page(request):
 #         data = crud.objects.all()
 #         return render(request,'travel-page.html',{'data':data})
 
-razorpay_client = razorpay.Client(
-	auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
 
 # def payment(request):
 #     currency = 'INR'
@@ -154,6 +150,18 @@ razorpay_client = razorpay.Client(
 # def payment_page(request):
 #     data = crud.objects.all()
 #     return render(request,'payment_page.html',{'data':data})
+@csrf_exempt
+def default(request):
+    if request.method == 'POST':
+        print(request.POST)# examine the data returned from the API
+
+        messages.success(request,'You have Completed your Payment! Thank you and Revisit again!')
+        return redirect('main')
+
+    return render(request,'main.html')
+
+razorpay_client = razorpay.Client(
+	auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
 
 def payment(request):
 	currency = 'INR'
@@ -164,14 +172,14 @@ def payment(request):
 
 	# order id of newly created order.
 	razorpay_order_id = razorpay_order['id']
-	# callback_url = 'travel-page.html'
+	# callback_url = 'paymenthandler/'
 	# we need to pass these details to frontend.
 	context = {}
 	context['razorpay_order_id'] = razorpay_order_id
 	context['razorpay_merchant_key'] = settings.RAZOR_KEY_ID
 	context['razorpay_amount'] = amount
 	context['currency'] = currency
-	# context['callback_url'] = 'http://127.0.0.1:8000'
+	context['callback_url'] = '/default/'
 
 	return render(request, 'payment_page.html', context=context)
 
@@ -179,8 +187,8 @@ def payment(request):
 # we need to csrf_exempt this url as
 # POST request will be made by Razorpay
 # and it won't have the csrf token.
-
 @csrf_exempt
+
 def paymenthandler(request):
 
 	# only accept POST request.
@@ -201,20 +209,22 @@ def paymenthandler(request):
 			result = razorpay_client.utility.verify_payment_signature(
 				params_dict)
 			if result is not None:
-				amount = 20000
+				amount = 20000 # Rs. 200
 				try:
 
 					# capture the payemt
 					razorpay_client.payment.capture(payment_id, amount)
 
 					# render success page on successful caputre of payment
-					messages.info('Payment Successful!')
-					return render(request, 'main.html')
+					return redirect(request, 'main.html')
 				except:
 
 					# if there is an error while capturing payment.
-					messages.error('Payment Failed, Please Try Again!')
-					return render(request, 'payment_page.html')
+					return redirect(request, 'payment_page.html')
+			else:
+
+				# if signature verification fails.
+				return render(request, 'payment_page.html')
 		except:
 
 			# if we don't find the required parameters in POST data

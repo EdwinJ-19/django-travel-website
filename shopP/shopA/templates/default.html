@@ -4,64 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book</title>
-    <link href="{%static 'img/hotel.svg'%}" rel="icon" type="img/icons"> 
+    <title>Travel To Main</title>
+    <link href="{%static 'img/travel.svg'%}" rel="icon" type="img/icons"> 
     <!--Css link-->
-    <link href="{%static 'css/t-p.css'%}" rel="stylesheet" type="text/css">
+    <link href="{%static 'css/main.css'%}" rel="stylesheet" type="text/css">
     <!--google font-->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&family=Long+Cang&family=Merriweather:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Raleway&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
     <!--Fontawesome icon-->
     <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
 </head>
 <body>
-   <nav>
 
+   <nav>
     <div class="nav-head">
         <img src="{%static 'img/T&T.png'%}" alt="logo" style="width: 4rem;"> 
         <h1 style="font-family: 'Playfair Display',sans-serif;">Travel & Tourism</h1>
     </div>
     <div class="nav-center">
         <ul>
-            <li><a href="{%url 'main'%}">Home</a></li>
+            <li><a href="#" class="active">Home</a></li>
             <li><a href="{%url 'out_page'%}"><i class="fa-regular fa-user" style="margin-right: 0.5rem;"></i>{{request.user.first_name|capfirst}}</a></li>
             <li><a href="{%url 'about'%}">About Me</a></li>
-            <li><a href="#" class="active">Book</a></li>
+            <li class="book"><a href="{%url 'travel-page'%}">Book</a></li>
         </ul>
     </div>
    </nav>
 
-    <container>
-
-        <form method="get">
-            <!-- {%csrf_token%} -->
-        <div class="nav-search">
-            <input type="search" name="searchname" placeholder="Select Your Destination">
-            <input type="location" name="search" placeholder="Exact-Location">
-            <input type="price" name="search" placeholder="Price">
-            <button type="submit">Search</button>
-            <!-- <a href="{%url 'travel'%}">Search</a> -->
-        </div>
-        </form>
-    
-        {%for d in data%}
-        <form method="post">
-            {% csrf_token %}
-        <div class="small-card">
-            <div class="img">
-                <img src="{%static 'img/carousel/1.jpg'%}" alt="img-1">
-            </div>
-            <div class="small-details">
-                <h1 name="head">{{d.head}} ({{d.sentence}})</h1>
-                <p>{{d.attraction}}</p>
-                <p>Rs. {{d.price}}</p>
-                <!-- <a href="{%url 'travel'%}">More Details</a> -->
-                <!-- <button type="button" name="more-details">More Details</button> -->
-                
-            </div>
-        </div>
-        </form>
-        {% endfor %}
-    </container>
+   
 
     <footer>
         <div class="row">

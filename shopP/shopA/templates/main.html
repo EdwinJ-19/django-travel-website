@@ -30,6 +30,14 @@
     </div>
    </nav>
 
+   {% if messages %}
+    <ul class="messages" style="background-color: lightblue; border: 1px solid blue; border-radius: 1rem;padding: 1rem 0; margin-bottom: 1rem;">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
     <container>
         <div class="carousel-img-list">
             <img src="{%static 'img/carousel/1.jpg'%}" alt="1" class="image-item">
